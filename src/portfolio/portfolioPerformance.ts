@@ -54,3 +54,23 @@ export function calculatePortfolioPerformance(
     performanceSummary,
   };
 }
+
+
+
+export interface Asset {
+  name: string;
+  value: number;
+}
+
+//function 1
+export function findLargestHolding(assets: Asset[]): Asset | null {
+  if (assets.length === 0) return null;
+
+  return assets.reduce((largest, current) => {
+    return current.value > largest.value ? current : largest;
+  }, assets[0]);
+}
+
+
+
+
